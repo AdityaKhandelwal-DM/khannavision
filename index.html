@@ -448,6 +448,19 @@ footer .fine { border-top: 1px solid #4A3B2A; margin-top: 48px; padding-top: 24p
 .gallery-item .cap { padding: 12px 14px; font-size: 12.5px; letter-spacing: .05em; color: var(--brown); }
 .diaries-tag { margin-top: 32px; text-align: center; font-family: 'Marcellus', serif; font-size: 20px; letter-spacing: .1em; color: var(--amber); }
 
+/* ---------- FAQ (native details accordion) ---------- */
+.faq-list { margin-top: 44px; display: grid; gap: 14px; max-width: 880px; }
+.faq-item { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: border-color .3s, box-shadow .3s; }
+.faq-item[open] { border-color: var(--amber-soft); box-shadow: var(--shadow); }
+.faq-item summary { list-style: none; cursor: pointer; padding: 22px 26px; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-family: 'Marcellus', serif; font-size: 18.5px; letter-spacing: .01em; color: var(--ink); }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary .q-ic { flex: none; width: 20px; height: 20px; position: relative; color: var(--amber); }
+.faq-item summary .q-ic::before, .faq-item summary .q-ic::after { content: ""; position: absolute; top: 9px; left: 1px; width: 18px; height: 2px; background: currentColor; border-radius: 2px; transition: transform .3s var(--ease); }
+.faq-item summary .q-ic::after { transform: rotate(90deg); }
+.faq-item[open] summary .q-ic::after { transform: rotate(0); opacity: 0; }
+.faq-item .faq-a { padding: 0 26px 24px; color: var(--brown); font-size: 16px; line-height: 1.72; }
+.faq-item .faq-a a { color: var(--amber); }
+
 @media (max-width: 980px) {
   .collection-grid { grid-template-columns: 1fr 1fr; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
@@ -542,6 +555,45 @@ footer .fine { border-top: 1px solid #4A3B2A; margin-top: 48px; padding-top: 24p
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Sunday"], "opens": "10:30", "closes": "20:00" }
       ],
       "sameAs": ["https://www.instagram.com/khanna_vision"]
+    }
+  ]
+}
+</script>
+<!-- ===================== FAQ SCHEMA ===================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which is the best optical shop in Jaipur?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Khanna Vision has been a trusted optical shop and opticians in Jaipur since 1961, with two stores — on M I Road and at Choura Rasta, Bapu Bazar. We stock spectacles, eyeglasses, sunglasses and contact lenses from leading brands, with eye testing and expert fitting by three generations of opticians." }
+    },
+    {
+      "@type": "Question",
+      "name": "What are Khanna Vision's store timings? Are you open now?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Both our optical stores are open Monday to Saturday, 10:30 AM – 9:00 PM, and Sunday until 8:00 PM. Walk in any day — no appointment is needed for an eye test." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which eyewear and spectacle brands do you stock?",
+      "acceptedAnswer": { "@type": "Answer", "text": "We carry Ray-Ban, Oakley, Vogue, Versace, Emporio Armani and Carrera, plus Essilor and Zeiss lenses — including prescription glasses, sunglasses, rimless frames and clip-ons for men and women." }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to get new glasses?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most prescription glasses are ready in as little as 2 hours at Khanna Vision, so you rarely have to wait or come back another day." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you sell contact lenses and provide eye tests?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. We stock contact lenses (Acuvue, Biofinity and more) and offer professional eye testing, contact-lens fitting, and prescriptions for single-vision, bifocal and progressive lenses." }
+    },
+    {
+      "@type": "Question",
+      "name": "Where are your optical stores located in Jaipur?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Store 1: Shop No. 334, M I Road, Jaipur. Store 2: Shop No. 278, Choura Rasta, Bapu Bazar, Biseswarji, Jaipur." }
     }
   ]
 }
@@ -643,7 +695,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap">
     <span class="eyebrow reveal">What we do</span>
     <h2 class="reveal">Everything your eyes need,<br>under one roof</h2>
-    <p class="section-sub reveal d1">From a precise prescription to the perfect fit — handled by people who've been doing this for three generations.</p>
+    <p class="section-sub reveal d1">From a precise prescription to the perfect fit, Khanna Vision is the optical shop in Jaipur for spectacles, eyeglasses, sunglasses and contact lenses — handled by people who've been doing this for three generations.</p>
 
     <div class="services-grid">
       <div class="svc reveal">
@@ -849,7 +901,7 @@ slot with:  <img src="assets/diaries/FILE.jpg" alt="…"> -->
 
     <div class="gallery-grid">
       <figure class="gallery-item reveal">
-        <div class="slot"><img src="assets/diaries/team-welcome.jpg" alt="Khanna Vision team welcoming customers"></div>
+        <div class="slot"><img src="assets/diaries/team-welcome.jpg" alt="Khanna Vision opticians welcoming customers at their optical shop in Jaipur"></div>
         <div class="cap">Our team welcomes you</div>
       </figure>
 
@@ -889,17 +941,58 @@ slot with:  <img src="assets/diaries/FILE.jpg" alt="…"> -->
       </figure>
 
       <figure class="gallery-item reveal">
-        <div class="slot"><img src="assets/diaries/store-brand-walls.jpg" alt="Designer brand display walls inside Khanna Vision"></div>
+        <div class="slot"><img src="assets/diaries/store-brand-walls.jpg" alt="Designer eyewear brand walls inside Khanna Vision optical shop in Jaipur"></div>
         <div class="cap">Inside our store — brand walls</div>
       </figure>
 
       <figure class="gallery-item reveal d1">
-        <div class="slot"><img src="assets/diaries/store-display.jpg" alt="Eyewear displays inside Khanna Vision store"></div>
+        <div class="slot"><img src="assets/diaries/store-display.jpg" alt="Spectacles and sunglasses displays inside Khanna Vision store in Jaipur"></div>
         <div class="cap">Inside our store — displays</div>
       </figure>
     </div>
 
     <div class="diaries-tag reveal">#CustomerDiaries</div>
+  </div>
+</section>
+
+<!-- ================= FAQ (targets "near me / timings / brands / price" search intent) ================= -->
+<section id="faq">
+  <div class="wrap">
+    <span class="eyebrow reveal">FAQ</span>
+    <h2 class="reveal">Optical shop in Jaipur —<br>your questions answered</h2>
+    <p class="section-sub reveal d1">Everything you might ask before visiting our optical stores for spectacles, eyeglasses, sunglasses or contact lenses.</p>
+
+    <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary>Which is the best optical shop in Jaipur? <span class="q-ic" aria-hidden="true"></span></summary>
+        <div class="faq-a">Khanna Vision has been a trusted optical shop and opticians in Jaipur since 1961, with two stores — on M I Road and at Choura Rasta, Bapu Bazar. We stock spectacles, eyeglasses, sunglasses and contact lenses from leading brands, with eye testing and expert fitting by three generations of opticians.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>What are your store timings? Are you open now? <span class="q-ic" aria-hidden="true"></span></summary>
+        <div class="faq-a">Both our optical stores are open Monday to Saturday, 10:30 AM – 9:00 PM, and Sunday until 8:00 PM. Walk in any day — no appointment is needed for an eye test.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Which eyewear and spectacle brands do you stock? <span class="q-ic" aria-hidden="true"></span></summary>
+        <div class="faq-a">We carry Ray-Ban, Oakley, Vogue, Versace, Emporio Armani and Carrera, plus Essilor and Zeiss lenses — including prescription glasses, sunglasses, rimless frames and clip-ons for men and women.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>How long does it take to get new glasses? <span class="q-ic" aria-hidden="true"></span></summary>
+        <div class="faq-a">Most prescription glasses are ready in as little as 2 hours at Khanna Vision, so you rarely have to wait or come back another day.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Do you sell contact lenses and provide eye tests? <span class="q-ic" aria-hidden="true"></span></summary>
+        <div class="faq-a">Yes. We stock contact lenses (Acuvue, Biofinity and more) and offer professional eye testing, contact-lens fitting, and prescriptions for single-vision, bifocal and progressive lenses.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Where are your optical stores located in Jaipur? <span class="q-ic" aria-hidden="true"></span></summary>
+        <div class="faq-a">Store 1: Shop No. 334, M I Road, Jaipur. Store 2: Shop No. 278, Choura Rasta, Bapu Bazar, Biseswarji, Jaipur. Both are easy to reach — <a href="#stores">get directions from the maps above</a>.</div>
+      </details>
+    </div>
   </div>
 </section>
 
