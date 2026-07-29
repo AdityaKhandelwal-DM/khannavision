@@ -359,7 +359,8 @@ nav.main-nav a:hover::after { width: 100%; }
 
 /* ---------- contact ---------- */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-form#lead-form { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 34px; box-shadow: var(--shadow); }
+form#lead-form, .contact-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 34px; box-shadow: var(--shadow); }
+.contact-card { display: flex; flex-direction: column; gap: 14px; justify-content: center; }
 .field { margin-bottom: 18px; }
 .field label { display: block; font-size: 12px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 7px; color: var(--brown); }
 .field input, .field select {
@@ -368,7 +369,7 @@ form#lead-form { background: var(--surface); border: 1px solid var(--line); bord
   transition: border-color .25s, background .25s;
 }
 .field input:focus, .field select:focus { outline: none; border-color: var(--amber); background: var(--surface); }
-#lead-form .btn { width: 100%; }
+#lead-form .btn, .contact-card .btn { width: 100%; }
 
 /* ---------- footer ---------- */
 footer { background: var(--ink); color: #CBBDA5; padding: 68px 0 38px; }
@@ -577,7 +578,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="hero-sub rise r3">Eye testing, prescription eyewear, contact lenses, fitting and repairs — at M&nbsp;I&nbsp;Road and Choura Rasta, Bapu Bazar. Walk in, no appointment needed.</p>
       <div class="hero-ctas rise r4">
         <a class="btn btn-primary" href="tel:+918306996299">Call +91 83069 96299</a>
-        <a class="btn btn-ghost" href="#contact">Book an Eye Test</a>
+        <a class="btn btn-ghost" href="https://wa.me/918306996299?text=Hi%20Khanna%20Vision%2C%20I%20want%20to%20book%20an%20eye%20test" target="_blank" rel="noopener">Book an Eye Test</a>
       </div>
       <div class="hero-proof rise r5">
         <div class="pf"><b>★★★★★</b><span>Rated on Google</span></div>
@@ -898,37 +899,30 @@ TODO: confirm the actual offer with the client — this is the ad hook. -->
         <h2>Free eye test<br>at both stores</h2>
         <p>Walk in, or book below and we'll keep a slot ready. New prescription in minutes — new glasses in as little as 2 hours.</p>
       </div>
-      <a class="btn btn-primary" href="#contact">Book a Free Eye Test</a>
+      <a class="btn btn-primary" href="https://wa.me/918306996299?text=Hi%20Khanna%20Vision%2C%20I%20want%20to%20book%20an%20eye%20test" target="_blank" rel="noopener">Book a Free Eye Test</a>
     </div>
   </div>
 </section>
 
-<!-- ================= CONTACT / LEAD FORM ================= -->
+<!-- ================= CONTACT / BOOK ON WHATSAPP ================= -->
 <section id="contact">
   <div class="wrap contact-grid">
     <div>
       <span class="eyebrow reveal">Book an eye test</span>
-      <h2 class="reveal">Reserve your slot —<br>we'll call to confirm</h2>
-      <p class="section-sub reveal d1">Prefer to talk? Call <a href="tel:+918306996299"><b>+91 83069 96299</b></a> or message us on WhatsApp — we reply within minutes during store hours.</p>
+      <h2 class="reveal">Book your eye test<br>on WhatsApp</h2>
+      <p class="section-sub reveal d1">Message us on WhatsApp and we'll confirm your slot — we reply within minutes during store hours. Prefer to talk? Call <a href="tel:+918306996299"><b>+91 83069 96299</b></a>.</p>
     </div>
-    <form id="lead-form" class="reveal d1">
-      <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" required autocomplete="name"></div>
-      <div class="field"><label for="f-phone">Phone number</label><input id="f-phone" name="phone" type="tel" required pattern="[0-9+ ]{10,14}" autocomplete="tel"></div>
-      <div class="field"><label for="f-store">Preferred store</label>
-        <select id="f-store" name="store">
-          <option>M I Road</option>
-          <option>Choura Rasta, Bapu Bazar</option>
-        </select>
-      </div>
-      <div class="field"><label for="f-time">Preferred time</label>
-        <select id="f-time" name="time">
-          <option>Morning (10:30 AM – 1 PM)</option>
-          <option>Afternoon (1 PM – 5 PM)</option>
-          <option>Evening (5 PM – 9 PM)</option>
-        </select>
-      </div>
-      <button class="btn btn-amber" type="submit">Book my eye test</button>
-    </form>
+    <div class="contact-card reveal d1">
+      <a class="btn btn-amber" href="https://wa.me/918306996299?text=Hi%20Khanna%20Vision%2C%20I%20want%20to%20book%20an%20eye%20test" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm5.9 14.1c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.5-1.2-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.4.5-.3.3c-.2.2-.3.3-.1.6.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.3.1.5.1.6-.1l.7-.9c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.6-.1 1.2z"/></svg>
+        Book on WhatsApp
+      </a>
+      <a class="btn btn-ghost" href="tel:+918306996299">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call +91 83069 96299
+      </a>
+      <p style="font-size:13.5px;color:var(--brown);text-align:center;margin-top:2px;">Walk in any day — no appointment needed.</p>
+    </div>
   </div>
 </section>
 
@@ -1000,27 +994,6 @@ document.querySelectorAll('a[href*="wa.me"]').forEach(a =>
   a.addEventListener('click', () => track('WHATSAPP_LABEL')));
 document.querySelectorAll('a[href*="google.com/maps"], a[href*="maps.app"]').forEach(a =>
   a.addEventListener('click', () => track('DIRECTIONS_LABEL')));
-
-/* Lead form — wire to your Google Apps Script endpoint (same pattern
-   as your GISM Academy build). Replace SCRIPT_URL. */
-const form = document.getElementById('lead-form');
-if (form) {
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const btn = form.querySelector('button');
-    btn.disabled = true; btn.textContent = 'Sending…';
-    const data = Object.fromEntries(new FormData(form).entries());
-    try {
-      // await fetch('SCRIPT_URL', { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
-      console.log('Lead payload (connect endpoint):', data);
-      track('LEAD_LABEL');
-      form.innerHTML = '<p style="font-size:18px;font-family:Fraunces,serif;">Thank you — we\'ll call you shortly to confirm your eye test.</p>';
-    } catch (err) {
-      btn.disabled = false; btn.textContent = 'Book my eye test';
-      alert('Could not send right now. Please call us instead.');
-    }
-  });
-}
 
 /* ============ Motion layer (transform/opacity only) ============ */
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
