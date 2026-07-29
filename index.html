@@ -1085,22 +1085,25 @@ const io = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 /* ============================================================
-   GOOGLE ADS CONVERSION HOOKS
-   1. Paste your gtag snippet in <head> (see index.html comment).
-   2. Replace AW-XXXXXXXXX/YYYYYYYY below with your conversion
-      label for "Phone Call Click" and "WhatsApp Click".
+   CONVERSION TRACKING → GTM dataLayer
+   Each click pushes an event that GTM catches with a Custom Event
+   trigger. Event names:  call_click · whatsapp_click · directions_click
+   Extra params (link_url, link_text) are available as dataLayer variables.
    ============================================================ */
-function track(label) {
-  if (typeof gtag === 'function') {
-    gtag('event', 'conversion', { send_to: 'AW-XXXXXXXXX/' + label });
-  }
+window.dataLayer = window.dataLayer || [];
+function track(eventName, el) {
+  window.dataLayer.push({
+    event: eventName,
+    link_url: el ? el.href : undefined,
+    link_text: el ? (el.textContent || '').trim().replace(/\s+/g, ' ') : undefined
+  });
 }
 document.querySelectorAll('a[href^="tel:"]').forEach(a =>
-  a.addEventListener('click', () => track('CALL_LABEL')));
+  a.addEventListener('click', () => track('call_click', a)));
 document.querySelectorAll('a[href*="wa.me"]').forEach(a =>
-  a.addEventListener('click', () => track('WHATSAPP_LABEL')));
+  a.addEventListener('click', () => track('whatsapp_click', a)));
 document.querySelectorAll('a[href*="google.com/maps"], a[href*="maps.app"]').forEach(a =>
-  a.addEventListener('click', () => track('DIRECTIONS_LABEL')));
+  a.addEventListener('click', () => track('directions_click', a)));
 
 /* ============ Motion layer (transform/opacity only) ============ */
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
