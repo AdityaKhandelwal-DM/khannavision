@@ -3,4 +3,4 @@ Allow: /
 
 # Block nothing — this is a single public landing page.
 
-Sitemap: https://khannavision.in/sitemap.xml
+Sitemap: https://www.khannavisionjaipur.com/sitemap.xml
